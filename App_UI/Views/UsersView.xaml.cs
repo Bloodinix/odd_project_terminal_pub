@@ -11,5 +11,7 @@ namespace App_UI.Views
         {
             InitializeComponent();
         }
+
+
     }
 }

@@ -306,7 +306,7 @@ namespace App_UI.ViewModels
         /// </summary>
         private void initRegEx()
         {
-            ReProvince = new Regex(@"([A-z]{4})");
+            ReProvince = new Regex(@"([A-z]{2})");
             RePhoneNumber = new Regex(@"(([(]?\d{3}[)]?[ -]?){2}[ -]?\d{4})");
             RePostalCode = new Regex(@"([A-z]{1}\d{1}[A-z]{1}[ ]?[-]?\d{1}[A-z]{1}\d{1}|\d{5})");
 

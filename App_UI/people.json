@@ -1,9 +1,0 @@
-﻿@"{'FirstName': 'Ayanna', 
-"LastName" = "Vargas", 
-"BirthDay" = DateTime.Parse("1967-12-25"), 
-"City" = "Rock Forest", 
-"Province" = "QC", 
-"PostalCode" = "J1N 1H6", 
-"Email" = "purus.in@semvitae.edu", 
-"Mobile" = "462-515-8993", 
-"Phone" = "658-774-3123"}"
