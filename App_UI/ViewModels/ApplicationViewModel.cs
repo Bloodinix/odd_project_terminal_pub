@@ -1,5 +1,7 @@
 ﻿using App_UI.Commands;
+using App_UI.Models;
 using App_UI.Services;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -118,8 +120,10 @@ namespace App_UI.ViewModels
             ChangePageCommand = new DelegateCommand<string>(ChangePage);
             ExportCommand = new DelegateCommand<string>(ExportData);
             NewRecordCommand = new DelegateCommand<string>(RecordCreate);
+            ImportCommand = new DelegateCommand<string>(ImportData);
 
         }
+
 
         private void RecordCreate(string obj)
         {
@@ -130,14 +134,25 @@ namespace App_UI.ViewModels
         {
             /// TODO 02a : Compléter ExportData
             /// Utiliser PeopleDataService.Instance.GetAllAsJson() pour récupérer le json
+            /// 
+            
+            
+            PeopleDataService.Instance.GetAllAsJson();
         }
 
         private async void ImportData(string obj)
         {
             /// TODO 01b : Compléter la commande d'importation
             /// Utiliser PeopleDataService.Instance.SetAllFromJson(string allContent)
-            
+            /// 
+
+
+            //PeopleDataService.Instance.SetAllFromJson(string allContent);
+
+
         }
+
+
 
         private void initViewModels()
         {
@@ -179,5 +194,7 @@ namespace App_UI.ViewModels
         }
 
         #endregion
+
+
     }
 }

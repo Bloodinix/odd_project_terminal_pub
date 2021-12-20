@@ -147,7 +147,22 @@ namespace App_UI.Services
         public int SetAllFromJson(string allContent)
         {
             /// TODO 01c : Compléter la méthode pour convertir les données
-            
+            /// 
+            var filename = "people.json";
+
+            using (StreamReader sr = File.OpenText(filename))
+            {
+                var fileContent = sr.ReadToEnd();
+
+                Person p = JsonConvert.DeserializeObject<Person>(fileContent);
+
+                Console.WriteLine($"***** Contenu de {filename} *****");
+                Console.WriteLine(fileContent);
+                Console.WriteLine($"***** {nameof(Person)}.toString() *****");
+                Console.WriteLine(p);
+
+            }
+
             return 0;
         }
 
@@ -158,6 +173,17 @@ namespace App_UI.Services
         public string GetAllAsJson()
         {
             /// TODO 02b : Compléter la méthode pour convertir les données
+
+            var filename = "people.json";
+
+            string resultat = JsonConvert.SerializeObject(data, Formatting.Indented);
+
+            using (var tw = new StreamWriter(filename, true))
+            {
+                tw.WriteLine(resultat);
+                tw.Close();
+            }
+
             return string.Empty;
         }
 
