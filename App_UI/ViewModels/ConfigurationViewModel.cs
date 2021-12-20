@@ -1,6 +1,8 @@
 ﻿using App_UI.Commands;
 using OpenWeatherAPI;
 using System;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace App_UI.ViewModels
 {
@@ -49,6 +51,8 @@ namespace App_UI.ViewModels
         /// Permet de tester si la clé API fonctionne
         /// </summary>
         /// <param name="obj"></param>
+        /// 
+        public static HttpClient ApiClient { get; set; }
         private async void TestConfiguration(string obj)
         {
             ApiHelper.InitializeClient();
@@ -56,6 +60,11 @@ namespace App_UI.ViewModels
             /// TODO 05 : Tester que l'appli est capable de récupérer la clé api
             /// et faire une appel à l'OpenWeatherProcessor avec GetOneCallAsync
             /// Copier le string du resultat dans TestResult
+
+            ApiClient = new HttpClient();
+            ApiClient.DefaultRequestHeaders.Accept.Clear();
+            ApiClient.DefaultRequestHeaders.Accept.
+                Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             var result = "Attendre après l'appel de GetOneCallAsync";
 
